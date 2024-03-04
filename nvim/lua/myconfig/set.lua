@@ -60,14 +60,15 @@ require("autoclose").setup()
 -- Display tabs as '>>' and spaces as '.'
 vim.api.nvim_exec([[
   set list
-  set listchars=tab:»\ ,space:.
+  set listchars=tab:»\ ,space:·
 ]], false)
 
 vim.api.nvim_exec([[
-colorscheme 256_noir
+colorscheme phoenix
 ]], false)
 
 
+require'colorizer'.setup()
 
 vim.opt.formatoptions:remove('c') 
 vim.opt.formatoptions:remove('r') 
