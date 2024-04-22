@@ -27,7 +27,7 @@ exec --no-startup-id dex --autostart --environment i3
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec_always --no-startup-id /home/default/.config/i3/autostart.sh 
+exec_always --no-startup-id /home/user/.config/i3/autostart.sh 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 
@@ -41,7 +41,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym Mod1+Tab focus right
 
-bindsym $mod+equal exec --no-startup-id sh -c "~/.local/bin/boomer"
+bindsym $mod+equal exec --no-startup-id sh -c "boomer"
 
 bindsym Print exec --no-startup-id sh -c 'screenshot_path=~/Pictures/screenshot/$(date "+%Y-%m-%d_%H.%M.%S")_screenshot.png && maim -m 10 $screenshot_path && notify-send "Full Screen Screenshot taken" $screenshot_path'
 bindsym $mod+Shift+Print exec --no-startup-id sh -c 'screenshot_path=~/Pictures/screenshot/$(date "+%Y-%m-%d_%H.%M.%S")_screenshot.png && maim -m 10 -s $screenshot_path && notify-send "Selection Screenshot taken" $screenshot_path'

@@ -64,11 +64,11 @@ vim.api.nvim_exec([[
 ]], false)
 
 vim.api.nvim_exec([[
-colorscheme phoenix
+colorscheme gruvbox
+autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=200}
 ]], false)
 
 
-require'colorizer'.setup()
 
 vim.opt.formatoptions:remove('c') 
 vim.opt.formatoptions:remove('r') 

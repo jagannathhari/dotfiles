@@ -11,6 +11,7 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+
 completion = { autocomplete = false },
 view={entries = "native" },
   mapping = {
