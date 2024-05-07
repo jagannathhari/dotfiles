@@ -72,10 +72,13 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexi
 vim.opt.formatoptions:remove('c') 
 vim.opt.formatoptions:remove('r') 
 vim.opt.formatoptions:remove('o') 
+
+
 -- Check if persistent undo is supported
 if vim.fn.has("persistent_undo") == 1 then
     local target_path = vim.fn.expand('~/.undodir')
     vim.o.undodir = target_path
     vim.o.undofile = true
 end
+
 
