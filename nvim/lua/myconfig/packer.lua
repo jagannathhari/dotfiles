@@ -35,8 +35,10 @@ use({
 })
 use { "ellisonleao/gruvbox.nvim" }
 use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
 }
 --use "yamatsum/nvim-cursorline"
 end)
