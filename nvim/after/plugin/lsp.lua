@@ -1,10 +1,13 @@
 require("nvim-lsp-installer").setup {}
-require'lspconfig'.clangd.setup{
+local lspconfig = require("lspconfig")
+lspconfig.clangd.setup{
   
 }
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.jdtls.setup{}
-require'lspconfig'.lua_ls.setup{
+
+lspconfig.rust_analyzer.setup{}
+lspconfig.eslint.setup{}
+lspconfig.jdtls.setup{}
+lspconfig.lua_ls.setup{
 Lua = {
       runtime = {
         version = 'LuaJIT',
@@ -13,7 +16,8 @@ Lua = {
 }
 }
 
-require'lspconfig'.pyright.setup{}
+lspconfig.gopls.setup{}
+lspconfig.pyright.setup{}
 
 
 -- Map the function to a key combination
