@@ -81,4 +81,4 @@ if vim.fn.has("persistent_undo") == 1 then
     vim.o.undofile = true
 end
 
-
+require('Comment').setup()
