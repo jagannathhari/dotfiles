@@ -40,6 +40,24 @@ use {
         require('Comment').setup()
     end
 }
+
 --use "yamatsum/nvim-cursorline"
+
+use {
+  'phaazon/hop.nvim',
+  branch = 'v2', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+
+use({
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  })
+
 end)
 
