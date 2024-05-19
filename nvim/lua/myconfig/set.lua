@@ -26,6 +26,8 @@ vim.g.gui_font_default_size = 17
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "Anonymous Pro"
 
+vim.opt.list = false
+
 RefreshGuiFont = function()
   vim.opt.guifont = string.format("%s:h%s",vim.g.gui_font_face, vim.g.gui_font_size)
 end
@@ -58,12 +60,13 @@ require("autoclose").setup()
 
 -- Display tabs as '>>' and spaces as '.'
 vim.api.nvim_exec([[
-  set list
-  set listchars=tab:»\ ,space:·
+
+    command! ToggleList set list!
+    set listchars=tab:»\ ,space:·
 ]], false)
 
 vim.api.nvim_exec([[
-colorscheme gruvbox
+colorscheme phoenix
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=200}
 ]], false)
 
@@ -82,3 +85,5 @@ if vim.fn.has("persistent_undo") == 1 then
 end
 
 require('Comment').setup()
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
