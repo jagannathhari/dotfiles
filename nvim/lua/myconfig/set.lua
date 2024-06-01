@@ -66,7 +66,6 @@ vim.api.nvim_exec([[
 ]], false)
 
 vim.api.nvim_exec([[
-colorscheme phoenix
 autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexists']('HighlightedyankRegion') > 0 and 'HighlightedyankRegion' or 'IncSearch'), timeout=200}
 ]], false)
 
@@ -85,5 +84,8 @@ if vim.fn.has("persistent_undo") == 1 then
 end
 
 require('Comment').setup()
-
+local neogit = require('neogit')
+neogit.setup {}
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+require('gitsigns').setup()
