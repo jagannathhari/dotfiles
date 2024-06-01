@@ -24,6 +24,7 @@ use 'saadparwaiz1/cmp_luasnip'
 use "nvim-lua/plenary.nvim"
 use 'm4xshen/autoclose.nvim'
 use { 'mg979/vim-visual-multi', branch = 'master' }
+
 use({
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -48,7 +49,7 @@ use {
   branch = 'v2', -- optional but strongly recommended
   config = function()
     -- you can configure Hop the way you like here; see :h hop-config
-    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    require'hop'.setup {}
   end
 }
 
@@ -59,5 +60,19 @@ use({
     end,
   })
 
+
+
+use {
+  'NeogitOrg/neogit',
+  requires = {
+    'nvim-lua/plenary.nvim',         -- required
+    {'sindrets/diffview.nvim', opt = true},        -- optional - Diff integration
+
+    -- Only one of these is needed, not both.
+    {'nvim-telescope/telescope.nvim', opt = true}, -- optional
+  } 
+}
+use "sindrets/diffview.nvim" 
+use "lewis6991/gitsigns.nvim"
 end)
 
