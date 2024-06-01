@@ -7,14 +7,14 @@ lspconfig.clangd.setup{
 lspconfig.rust_analyzer.setup{}
 lspconfig.eslint.setup{}
 lspconfig.jdtls.setup{}
-lspconfig.lua_ls.setup{
-Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-
-}
-}
+-- lspconfig.lua_ls.setup{
+-- Lua = {
+--       runtime = {
+--         version = 'LuaJIT',
+--       },
+--
+-- }
+-- }
 
 lspconfig.gopls.setup{}
 lspconfig.pyright.setup{}
