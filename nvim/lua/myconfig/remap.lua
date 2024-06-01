@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n","<leader>re","@:")
 
@@ -28,3 +28,6 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<F4>', vim.cmd.UndotreeToggle)
+
+
+vim.keymap.set('n', '<leader>ng', ':Neogit kind=replace<CR>',{ noremap = true, silent = false })
