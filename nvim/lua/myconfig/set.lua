@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.ignorecase = true
 vim.opt.wrap = false
+vim.opt.title= true 
 vim.opt.fillchars = {eob = " "}
 
 vim.opt.clipboard = "unnamedplus"
