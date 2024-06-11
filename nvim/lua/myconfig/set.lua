@@ -8,7 +8,6 @@ vim.opt.ignorecase = true
 vim.opt.wrap = false
 vim.opt.title= true 
 vim.opt.fillchars = {eob = " "}
-
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.hlsearch = false
@@ -76,7 +75,7 @@ vim.opt.formatoptions:remove('c')
 vim.opt.formatoptions:remove('r') 
 vim.opt.formatoptions:remove('o') 
 
-
+vim.cmd([[colorscheme quiet]])
 -- Check if persistent undo is supported
 if vim.fn.has("persistent_undo") == 1 then
     local target_path = vim.fn.expand('~/.undodir')

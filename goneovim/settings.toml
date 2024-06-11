@@ -115,7 +115,7 @@ ExtPopupmenu = true
 ## Copy yanked text to clipboard.
 ## This only works when connected to a remote nvim instance.
 ## Please check `:h clipboard` for clipboard integration in local nvim instances.
-# Clipboard = true
+Clipboard = false
 
 ## WSL Integration Options
 ## If UseWSL is set to true, it will connect to nvim on WSL.
