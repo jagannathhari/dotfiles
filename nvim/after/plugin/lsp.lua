@@ -1,12 +1,10 @@
 require("nvim-lsp-installer").setup {}
 local lspconfig = require("lspconfig")
-lspconfig.clangd.setup{
-  
-}
+lspconfig.clangd.setup{}
 
-lspconfig.rust_analyzer.setup{}
-lspconfig.eslint.setup{}
-lspconfig.jdtls.setup{}
+-- lspconfig.rust_analyzer.setup{}
+-- lspconfig.eslint.setup{}
+-- lspconfig.jdtls.setup{}
 -- lspconfig.lua_ls.setup{
 -- Lua = {
 --       runtime = {
@@ -16,7 +14,7 @@ lspconfig.jdtls.setup{}
 -- }
 -- }
 
-lspconfig.gopls.setup{}
+-- lspconfig.gopls.setup{}
 lspconfig.pyright.setup{}
 
 

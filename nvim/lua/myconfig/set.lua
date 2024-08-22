@@ -1,3 +1,4 @@
+vim.loader.enable()
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.tabstop = 4
@@ -13,6 +14,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+vim.opt.virtualedit = 'all'
+vim.opt.startofline = true
 
 vim.opt.termguicolors = true
 
@@ -25,6 +28,7 @@ vim.opt.splitbelow = true
 vim.g.gui_font_default_size = 17
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "Anonymous Pro"
+-- vim.g.gui_font_face = "Shantell Sans Informal"
 
 vim.opt.list = false
 
@@ -54,7 +58,6 @@ vim.keymap.set({'n', 'i'}, "<C-->", function() ResizeGuiFont(-2) end, opts)
 vim.keymap.set({'n', 'i'}, "<C-BS>", function() ResetGuiFont() end, opts)
 
 
-vim.loader.enable()
 require("autoclose").setup()
 
 
@@ -89,3 +92,6 @@ neogit.setup {}
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require('gitsigns').setup()
+require("diffview").setup({
+    use_icons = false,
+})

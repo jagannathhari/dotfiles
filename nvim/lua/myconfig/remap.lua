@@ -15,7 +15,11 @@ vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = fal
 vim.keymap.set('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rc', ':RunClose<CR>', { noremap = true, silent = false })
-vim.keymap.set('n', '<leader>rr', ':-r!skelten %<CR>',{ noremap = true, silent = false })
+
+-- For My Convenience
+vim.keymap.set('n', '<leader>rr ', ':-r!skelten %<CR>',{ noremap = true, silent = false })
+vim.keymap.set('v', '<A-f>', ':\'<,\'>!clang-format -style=\"{IndentWidth: 4,TabWidth: 4,ColumnLimit: 0}\"<CR>',{ noremap = true, silent = false })
+vim.keymap.set('n', '<A-f>', ':%!clang-format -style=\"{IndentWidth: 4,TabWidth: 4,ColumnLimit: 0}\"<CR>',{ noremap = true, silent = false })
 
 
 

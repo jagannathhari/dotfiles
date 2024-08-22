@@ -7,7 +7,7 @@ require('code_runner').setup({
     size = 8,
     },
     filetype = {
-    java = "cd $dir &&  /home/default/Applications/jdk-19.0.1/bin/javac $fileName && /home/default/Applications/jdk-19.0.1/bin/java $fileNameWithoutExt",
+    java = "cd $dir &&  /home/user/Applications/jdk-19.0.1/bin/javac $fileName && /home/user/Applications/jdk-19.0.1/bin/java $fileNameWithoutExt",
         python = "/home/user/.pyenv/shims/python -u",
         go = "cd $dir && go run $fileName",
         typescript = "deno run",
