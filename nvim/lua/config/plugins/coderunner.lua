@@ -1,4 +1,12 @@
-require('code_runner').setup({
+return {
+  "CRAG666/code_runner.nvim",
+  keys = {
+    { "<F5>", ":w<CR>:RunFile<CR>", mode = "n", noremap = true, silent = true },
+    { "<leader>rf", ":w<CR>:RunFile<CR>", mode = "n", noremap = true, silent = true },
+    { "<leader>rc", ":w<CR>:RunClose<CR>", mode = "n", noremap = true, silent = true },
+  },
+  config = function()
+    require('code_runner').setup({
     mode= 'term',
     focus = true,
     startinsert = true,
@@ -17,4 +25,6 @@ require('code_runner').setup({
         kivy = "/home/jagannath/.pyenv/shims/python main.py",
 
     },
-})
+    })
+    end
+}
