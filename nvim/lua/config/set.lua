@@ -65,9 +65,3 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup=(vim.fn['hlexi
 vim.opt.formatoptions:remove('c') 
 vim.opt.formatoptions:remove('r') 
 vim.opt.formatoptions:remove('o') 
-
-
-require('gitsigns').setup()
-require("diffview").setup({
-    use_icons = false,
-})
