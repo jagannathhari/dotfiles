@@ -1,43 +1,69 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = '0.1.4',
-    dependencies = { "nvim-lua/plenary.nvim" },
-keys = {
-      { "<leader>jf", function() require('telescope.builtin').find_files() end, desc = "Find Files" },
-      { "<leader>jb", function() require('telescope.builtin').buffers() end, desc = "Buffers" },
-      { "<leader>ps", function() 
-          require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") }) 
-        end, desc = "Grep String" 
-      },
-      { "<leader>vh", function() require('telescope.builtin').help_tags() end, desc = "Help Tags" },
-      { "<leader>jg", function() require('telescope.builtin').live_grep() end, desc = "Live Grep" },
-    },  
-    config = function()
+    -- event = "VimEnter",
+    branch = "0.1.x",
 
-        local actions = require "telescope.actions"
-        require("telescope").setup {
-        defaults = {
-        sorting_strategy = "ascending",
-        layout_strategy = "bottom_pane",
-        results_title = "",
-        file_ignore_patterns = { "node_modules",".pyc" },
-        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-        prompt_prefix=":",
-        preview=false,
-        layout_config = {
-        prompt_position = "bottom",
-             height = 10,
+    event = { "BufReadPost", "BufNewFile" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        {
+            -- If encountering errors, see telescope-fzf-native README for installation instructions
+            "nvim-telescope/telescope-fzf-native.nvim",
+            -- `build` is used to run some command when the plugin is installed/updated.
+            -- This is only run then, not every time Neovim starts up.
+            build = "make",
+            -- `cond` is a condition used to determine whether this plugin should be
+            -- installed and loaded.
+            cond = function()
+                return vim.fn.executable "make" == 1
+            end
         },
+        { "nvim-telescope/telescope-ui-select.nvim" }
     },
-      pickers = {
-        buffers = {
-          mappings = {
-            n = {
-              ["<c-d>"] = actions.delete_buffer ,
+    config = function()
+        local actions = require "telescope.actions"
+        local action_state = require("telescope.actions.state")
+        require("telescope").setup {
+            defaults = {
+                sorting_strategy = "ascending",
+                layout_strategy = "bottom_pane",
+                results_title = "",
+                file_ignore_patterns = { "node_modules", ".pyc" },
+                borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+                prompt_prefix = ":",
+                preview = false,
+                layout_config = {
+                    prompt_position = "bottom",
+                    height = 10
+                }
+            },
+            pickers = {
+                buffers = {
+                    mappings = {
+                        n = {
+                            ["<c-d>"] = actions.delete_buffer
+                        }
+                    }
+                },
+                lsp_references = {
+                }
             }
-          }
-        },
-      }
-    }
-end
+        }
+
+        local builtin = require("telescope.builtin")
+
+        vim.keymap.set("n", "<leader>sf", builtin.find_files, {})
+        vim.keymap.set("n", "<leader>sb", builtin.buffers, {})
+        vim.keymap.set(
+            "n",
+            "<leader>ss",
+            function()
+                builtin.grep_string({ search = vim.fn.input("Grep > ") })
+            end
+        )
+        vim.keymap.set("n", "<leader>sh", builtin.help_tags, {})
+        vim.keymap.set("n", "<leader>sg", builtin.live_grep, {})
+
+        vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find)
+    end
 }

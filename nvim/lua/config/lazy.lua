@@ -16,5 +16,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-vim.g.mapleader = ";"
+vim.g.mapleader = " "
+local fn = vim.fn
+
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+-- General Settings
+local general = augroup("General", { clear = true })
+autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove { "c", "r", "o" }
+  end,
+  group = general,
+  desc = "Disable New Line Comment",
+})
+
 require("lazy").setup("config.plugins")
