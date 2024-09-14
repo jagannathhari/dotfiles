@@ -1,22 +1,93 @@
 return {
-  {
-    "phaazon/hop.nvim",
-    branch = 'v2',  -- or the branch you use
-    cmd = { "HopChar1", "HopChar2", "HopLine" },  -- List commands that will trigger loading
-    keys = {
-      { "f", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.AFTER_CURSOR, current_line_only = true}) end, desc = "Hop Char1 After Cursor" },
-      { "F", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.BEFORE_CURSOR, current_line_only = true}) end, desc = "Hop Char1 Before Cursor" },
-      { "t", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1}) end, desc = "Hop Char1 After Cursor (offset)" },
-      { "T", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1}) end, desc = "Hop Char1 Before Cursor (offset)" },
-      { "<leader>w", function() require("hop").hint_words() end, desc = "Hop Words" },
-      { "<leader>f", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.AFTER_CURSOR}) end, desc = "Hop Char1 After Cursor" },
-      { "<leader>F", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.BEFORE_CURSOR}) end, desc = "Hop Char1 Before Cursor" },
-      { "<leader>t", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.AFTER_CURSOR}) end, desc = "Hop Char1 After Cursor" },
-      { "<leader>T", function() require("hop").hint_char1({direction = require("hop.hint").HintDirection.BEFORE_CURSOR}) end, desc = "Hop Char1 Before Cursor" },
-    },
-    config = function()
-      require("hop").setup()
-    end,
-  }
-}
+    {
+        "phaazon/hop.nvim",
+        branch = 'v2',                               -- or the branch you use
+        event = {"BufReadPost","BufNewFile"},
+        config = function()
 
+            local hop = require("hop")
+            hop.setup()
+            local directions = require("hop.hint").HintDirection
+            vim.keymap.set(
+                "",
+                "f",
+                function()
+                    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "F",
+                function()
+                    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "t",
+                function()
+                    hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "T",
+                function()
+                    hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "<leader>w",
+                function()
+                    hop.hint_words()
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "<leader>f",
+                function()
+                    hop.hint_char1({ direction = directions.AFTER_CURSOR })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "<leader>F",
+                function()
+                    hop.hint_char1({ direction = directions.BEFORE_CURSOR })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "<leader>t",
+                function()
+                    hop.hint_char1({ direction = directions.AFTER_CURSOR })
+                end,
+                { remap = true, silent = true }
+            )
+
+            vim.keymap.set(
+                "",
+                "<leader>T",
+                function()
+                    hop.hint_char1({ direction = directions.BEFORE_CURSOR })
+                end,
+                { remap = true, silent = true }
+            )
+        end,
+    }
+}
