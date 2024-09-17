@@ -1,12 +1,15 @@
 
 
 -- For My Convenience
-vim.keymap.set('n', '<leader>rr ', ':-r!skelten %<CR>',{ noremap = true, silent = false })
+
+vim.keymap.set('n', '<leader>rr', ':-r! skelten %<CR>', { noremap = true, silent = false })
 vim.keymap.set('v', '<A-f>', ':\'<,\'>!clang-format -style=\"{IndentWidth: 4,TabWidth: 4,ColumnLimit: 0}\"<CR>',{ noremap = true, silent = false })
 vim.keymap.set('n', '<A-f>', ':%!clang-format -style=\"{IndentWidth: 4,TabWidth: 4,ColumnLimit: 0}\"<CR>',{ noremap = true, silent = false })
 
-vim.keymap.set('n', '<C-j>', ':bprev<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<C-k>', ':bnext<CR>', {noremap = true, silent = true})
+-- vim.keymap.set('n', '<C-j>', ':bprev<CR>', {noremap = true, silent = true})
+-- vim.keymap.set('n', '<C-j>', ':bprev<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<C-k>', ':cnext<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<C-j>', ':cpre<CR>', {noremap = true, silent = true})
 
 
 -- Map the function to a key combination
