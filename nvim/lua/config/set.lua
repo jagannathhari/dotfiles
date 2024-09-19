@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case --max-filesize 50K'
+
 opt.relativenumber = true
 opt.number = true
 opt.tabstop = 4
