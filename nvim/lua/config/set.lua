@@ -72,4 +72,26 @@ if vim.fn.has("persistent_undo") == 1 then
         local target_path = vim.fn.expand('~/.undodir')
         vim.o.undodir = target_path
         vim.o.undofile = true
-    end
+end
+
+vim.diagnostic.config({
+    virtual_text = false,  -- Disable virtual text
+    signs = true,          -- Enable signs
+    underline = true,      -- Optional: to underline the problematic code
+})
+
+
+
+
+vim.api.nvim_create_user_command('Compile', function(opts)
+   require("config.custom").run_compile_command(opts.args)
+end, { nargs = '*' })
+
+vim.api.nvim_create_user_command('Run', function(opts)
+    vim.cmd('split | term ' .. opts.args)
+    vim.cmd("resize 10")
+end, { nargs = '*' })
+
+
+vim.api.nvim_set_keymap('n', '<F6>', '<cmd>Compile<CR>', { noremap = true, silent = true })
+

@@ -32,9 +32,10 @@ vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<Esc><Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>cc', '<cmd>cclose<CR>')
-
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>')
+vim.keymap.set('n',"<leader>sd",vim.diagnostic.setqflist)
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<cmd>AssistantToggle <CR>', { noremap = true, silent = true })
 
 -- Function to run grep and open quickfix list
